@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminMiddleware
 {
@@ -17,7 +18,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check() || Auth::user()->utype !== 'ADM') {
+            Alert::success('Opps', 'Please Login First');
             return redirect('/');
+
+
             
         }
 
