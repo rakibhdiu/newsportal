@@ -33,10 +33,10 @@
                   <div id="myNav" class="overlay">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <div class="overlay-content">
-                        <a href="index.html">Home</a>
-                        <a href="protect.html">Protect</a>
-                        <a href="about.html">About</a>
-                        <a href="doctors.html">Doctors</a>
+                        <a href="{{route('home')}}">Home</a>
+                        <a href="{{route('protect')}}">Protect</a>
+                        <a href="{{route('about')}}">About</a>
+                        <a href="{{route('doctor')}}">Doctors</a>
                         <a href="{{route('news')}}">News</a>
                         <a href="{{ auth()->check() && auth()->user()->utype === 'ADM' ? route('admin.dashboard')
                          : route('dashboard') }}">Dashboard</a>

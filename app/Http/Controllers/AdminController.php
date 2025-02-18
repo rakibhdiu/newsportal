@@ -90,5 +90,14 @@ public function userStore(Request $request){
     public function news(){
         return view('frond.pages.news');
     }
+    public function about(){
+        return view('frond.pages.about');
+    }
+    public function protect(){
+        return view('frond.pages.protect');
+    }
+    public function doctor(){
+        return view('frond.pages.doctor');
+    }
 
 }

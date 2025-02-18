@@ -17,6 +17,12 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/news',[AdminController::class,'news'])->name('news');
+Route::get('/about',[AdminController::class,'about'])->name('about');
+Route::get('/protect',[AdminController::class,'protect'])->name('protect');
+Route::get('/doctor',[AdminController::class,'doctor'])->name('doctor');
+
+
+
 Route::middleware(['auth','user'])->group(function(){
     Route::get('/dashboard',[AdminController::class,'userdashboard'])->name('dashboard');
     Route::post('/userstore',[AdminController::class,'userStore'])->name('subscription');
