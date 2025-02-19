@@ -14,7 +14,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
 
-	<title>Blank Page | AdminKit Demo</title>
+	<title>News Portal Dashboard</title>
 
 	<link href="{{asset('css/app.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -59,7 +59,7 @@
 					</li>
 
 					<li class="sidebar-item ">
-						<a class="sidebar-link" href="#">
+						<a class="sidebar-link" href="">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Edit</span>
             </a>
 					</li>

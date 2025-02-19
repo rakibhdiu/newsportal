@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('admin')
-<h1 class="h3 mb-3">Show News</h1>
+<h1 class="h3 mb-3"> News Edit Pages</h1>
 
 <div class="row">
 	<div class="col-12">
