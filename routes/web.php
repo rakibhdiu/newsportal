@@ -33,4 +33,8 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::Post('/store',[AdminController::class,'store'])->name('store');
     Route::get('/edit/{id}',[AdminController::class,'edit'])->name('edit');
     Route::post('/update/{id}',[AdminController::class,'update'])->name('update');
+
+    Route::get('/add/news/',[AdminController::class,'addNews'])->name('add.news');
+    Route::get('/show/news/',[AdminController::class,'showNews'])->name('show.news');
+    Route::get('subscriber/message',[AdminController::class,'subscriberMessage'])->name('subscriber.message');
 });

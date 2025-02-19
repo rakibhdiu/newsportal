@@ -10,9 +10,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     public function admin(){
+       
+        return view('admin.admindashboard',);
+    }
+    public function addNews(){
+        return view('admin.pages.add_news');
+    } 
+    public function showNews(){
         $news=News::all();
-        $subscription= Subscribe::all();
-       return view('admin.admindashboard',compact('news','subscription'));
+        return view('admin.pages.show_news',compact('news'));
+    }
+
+    public function subscriberMessage(){
+        $subscriptions= Subscribe::all();
+        return view('admin.pages.subscriber_messages',compact('subscriptions'));
     }
 
 public function store(Request $request){
@@ -34,10 +45,12 @@ public function store(Request $request){
     Alert::success('ok', 'News Added Successfully');
     return redirect()->back();
   }
+
   public function edit($id){
     $edit= News::find($id);
-    return view('admin.news_edit',compact('edit'));
+    return view('admin.pages.edit',compact('edit'));
   }
+  
   public function update(Request $request, $id)
   {
     
