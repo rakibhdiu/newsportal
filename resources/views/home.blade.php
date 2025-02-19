@@ -26,6 +26,7 @@
                                <li><a href="{{ route('register') }}">Sign up</a></li>
                            @endif
                            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                           
                        </ul>
                        
                      </div>
