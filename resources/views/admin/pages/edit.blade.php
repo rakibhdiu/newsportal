@@ -9,9 +9,9 @@
 
                 <br><br><form action="{{route('update',$edit->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="text" name="title" value="{{$edit->title}}" placeholder="Enter title"><br><br>
-                    <input type="text" name="short_p" value="{{$edit->short_p}}" placeholder="Enter Short paragraph"><br><br>
-                    <img src="{{asset('upload/images/'.$edit->image)}}" alt="image"  width="300px" ><br>
+                    <input class="form-control" type="text" value="{{$edit->title}}" aria-label="default input example"><br>
+                    <input class="form-control" type="text" value="{{$edit->short_p}}"  aria-label="default input example"><br> 
+                    <img src="{{asset('upload/images/'.$edit->image)}}" alt="image"  width="300px" ><br><br>
                      <input class="form-control" name="image"  type="file" id="formFile"><br>
                     <textarea class="form-control" name="des" >{{$edit->description}}</textarea><br>
                     <button type="submit" class="btn btn-primary">Update</button>

@@ -13,6 +13,8 @@
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 	<title>News Portal Dashboard</title>
 
@@ -48,13 +50,13 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('add.news')}}">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Add News</span>
+							<i class="fa-solid fa-plus"></i><span class="align-middle">Add News</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('show.news')}}">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Show News</span>
+							<i class="fa-solid fa-book-open"></i> <span class="align-middle">Show News</span>
             </a>
 					</li>
 
