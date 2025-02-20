@@ -58,10 +58,11 @@ public function store(Request $request){
       $update = $request->validate([
           'title' => 'required|max:255',
           'short_p' => 'required|max:255',
-          'des' => 'required'
+          'des' => 'required',
+          'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
   
-      $data = News::Find($id);
+      $data = News::find($id);
   
       if ($request->hasFile('image')) {
           
