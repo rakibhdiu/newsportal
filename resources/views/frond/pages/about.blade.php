@@ -49,16 +49,19 @@
  <!-- about section start -->
  <div class="about_section layout_padding">
     <div class="container">
+      @foreach ($about as $value)
+         
        <div class="row">
           <div class="col-md-6">
-             <div class="about_img"><img src="images/img-1.png"></div>
+             <div class="about_img"><img src="{{asset('upload/images/' .$value->image)}}" alt="images"></div>
           </div>
           <div class="col-md-6">
-             <h1 class="about_taital">Coronavirus what it is?</span></h1>
-             <p class="about_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+             <h1 class="about_taital">{{ $value->about_title}}</span></h1>
+             <p class="about_text">{{$value->about_text}}</p>
              <div class="read_bt"><a href="#">Read More</a></div>
           </div>
        </div>
+       @endforeach
     </div>
  </div>
 @endsection

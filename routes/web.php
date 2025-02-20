@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,24 +32,29 @@ Route::middleware(['auth','user'])->group(function(){
 
 Route::middleware(['auth','admin'])->group(function(){
     Route::get('/admin/dashboard',[AdminController::class,'admin'])->name('admin.dashboard');
-    Route::Post('/store',[AdminController::class,'store'])->name('store');
-    Route::get('/edit/news/{id}',[AdminController::class,'edit'])->name('news.edit');
-
-    Route::post('/update/news/{id}', [AdminController::class, 'update'])->name('news.update');
-
-    Route::get('/add/news/',[AdminController::class,'addNews'])->name('add.news');
-    Route::get('/show/news/',[AdminController::class,'showNews'])->name('show.news');
     Route::get('subscriber/message',[AdminController::class,'subscriberMessage'])->name('subscriber.message');
+
+    //-------News pages------//
+    Route::get('/add/news/',[NewsController::class,'addNews'])->name('add.news');
+    Route::Post('/store',[NewsController::class,'store'])->name('store');
+    Route::get('/edit/news/{id}',[NewsController::class,'edit'])->name('news.edit');
+    Route::post('/update/news/{id}', [NewsController::class,'newsupdate'])->name('news.update');
+    Route::get('/show/news/',[NewsController::class,'showNews'])->name('show.news');
+   
+   
 
     //Protect pages//
     Route::get('/admin/protect',[AdminController::class,'addProtect'])->name('admin.protect');
     Route::post('/admin/protect/store',[AdminController::class,'addProtectStore'])->name('admin.protect.store');
     Route::get('/edit/protect/{id}',[AdminController::class,'editProtect'])->name('admin.edit.protect');
     Route::post('/update/protect/{id}',[AdminController::class,'updateprotect'])->name('admin.protect.update');
-
-
     Route::get('/show/protec',[AdminController::class,'ShowProtec'])->name('show.protect');
    
-
+    //---------------about------------//
+    Route::get('/admin/about',[AboutController::class,'addAbout'])->name('admin.about');
+    Route::post('/admin/about/store',[AboutController::class,'storeAbout'])->name('admin.about.store');
+    Route::get('/admin/show/about',[AboutController::class,'showAbout'])->name('admin.show.about');
+    Route::get('/admin/about/edit/{id}',[AboutController::class,'editAbout'])->name('admin.about.edit');
+    Route::post('/admin/about/update/{id}',[AboutController::class,'updateAbout'])->name('admin.about.update');
 
 });

@@ -90,7 +90,24 @@
             </a>
 					</li>
 
-					
+					<li class="sidebar-header">
+						About Virus
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('admin.about')}}">
+							<i class="fa-solid fa-plus"></i><span class="align-middle">Aout virus</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('admin.show.about')}}">
+							<i class="fa-solid fa-book-open"></i> <span class="align-middle">Show About virus</span>
+            </a>
+					</li>
+					<li class="sidebar-item ">
+						<a class="sidebar-link" href="">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Edit</span>
+            </a>
+					</li>
 
 				
 
