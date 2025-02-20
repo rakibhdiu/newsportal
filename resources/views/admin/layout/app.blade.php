@@ -95,12 +95,30 @@
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('admin.about')}}">
-							<i class="fa-solid fa-plus"></i><span class="align-middle">Aout virus</span>
+							<i class="fa-solid fa-plus"></i><span class="align-middle">About virus</span>
             </a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('admin.show.about')}}">
 							<i class="fa-solid fa-book-open"></i> <span class="align-middle">Show About virus</span>
+            </a>
+					</li>
+					<li class="sidebar-item ">
+						<a class="sidebar-link" href="">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Edit</span>
+            </a>
+					</li>
+					<li class="sidebar-header">
+						What Doctor Say
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('admin.add.doctor')}}">
+							<i class="fa-solid fa-plus"></i><span class="align-middle">Add Doctor</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('admin.show.doctor')}}">
+							<i class="fa-solid fa-book-open"></i> <span class="align-middle">Show Doctor</span>
             </a>
 					</li>
 					<li class="sidebar-item ">

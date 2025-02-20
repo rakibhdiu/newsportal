@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -43,18 +44,23 @@ Route::middleware(['auth','admin'])->group(function(){
    
    
 
-    //Protect pages//
+    //------------Protect pages--------------//
     Route::get('/admin/protect',[AdminController::class,'addProtect'])->name('admin.protect');
     Route::post('/admin/protect/store',[AdminController::class,'addProtectStore'])->name('admin.protect.store');
     Route::get('/edit/protect/{id}',[AdminController::class,'editProtect'])->name('admin.edit.protect');
     Route::post('/update/protect/{id}',[AdminController::class,'updateprotect'])->name('admin.protect.update');
     Route::get('/show/protec',[AdminController::class,'ShowProtec'])->name('show.protect');
    
-    //---------------about------------//
+    //---------------about pages------------//
     Route::get('/admin/about',[AboutController::class,'addAbout'])->name('admin.about');
     Route::post('/admin/about/store',[AboutController::class,'storeAbout'])->name('admin.about.store');
     Route::get('/admin/show/about',[AboutController::class,'showAbout'])->name('admin.show.about');
     Route::get('/admin/about/edit/{id}',[AboutController::class,'editAbout'])->name('admin.about.edit');
     Route::post('/admin/about/update/{id}',[AboutController::class,'updateAbout'])->name('admin.about.update');
-
+    //------------Doctors Pages--------//
+    Route::get('/admin/adddoctor',[DoctorController::class,'addDoctor'])->name('admin.add.doctor');
+    Route::get('/admin/doctor/show',[DoctorController::class,'showDoctor'])->name('admin.show.doctor');
+    Route::post('/admin/doctor/store',[DoctorController::class,'storeDoctor'])->name('admin.doctor.store');
+    Route::get('/admin/doctor/edit/{id}',[DoctorController::class,'editDoctor'])->name('admin.doctor.edit');
+    Route::post('/admin/doctor/update/{id}',[DoctorController::class,'updateDoctor'])->name('admin.doctor.update');
 });
