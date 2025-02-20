@@ -31,10 +31,23 @@ Route::middleware(['auth','user'])->group(function(){
 Route::middleware(['auth','admin'])->group(function(){
     Route::get('/admin/dashboard',[AdminController::class,'admin'])->name('admin.dashboard');
     Route::Post('/store',[AdminController::class,'store'])->name('store');
-    Route::get('/edit/{id}',[AdminController::class,'edit'])->name('edit');
-    Route::post('/update/{id}',[AdminController::class,'update'])->name('update');
+    Route::get('/edit/news/{id}',[AdminController::class,'edit'])->name('news.edit');
+
+    Route::post('/update/news/{id}', [AdminController::class, 'update'])->name('news.update');
 
     Route::get('/add/news/',[AdminController::class,'addNews'])->name('add.news');
     Route::get('/show/news/',[AdminController::class,'showNews'])->name('show.news');
     Route::get('subscriber/message',[AdminController::class,'subscriberMessage'])->name('subscriber.message');
+
+    //Protect pages//
+    Route::get('/admin/protect',[AdminController::class,'addProtect'])->name('admin.protect');
+    Route::post('/admin/protect/store',[AdminController::class,'addProtectStore'])->name('admin.protect.store');
+    Route::get('/edit/protect/{id}',[AdminController::class,'editProtect'])->name('admin.edit.protect');
+    Route::post('/update/protect/{id}',[AdminController::class,'updateprotect'])->name('admin.protect.update');
+
+
+    Route::get('/show/protec',[AdminController::class,'ShowProtec'])->name('show.protect');
+   
+
+
 });

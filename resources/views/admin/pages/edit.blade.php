@@ -7,7 +7,7 @@
 		<div class="card">
 			<div class="card-header">
 
-                <br><br><form action="{{route('update',$edit->id)}}" method="POST" enctype="multipart/form-data">
+                <br><br><form action="{{route('news.update',$edit->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input class="form-control" type="text" value="{{$edit->title}}" aria-label="default input example"><br>
                     <input class="form-control" type="text" value="{{$edit->short_p}}"  aria-label="default input example"><br> 

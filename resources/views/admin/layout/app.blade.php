@@ -47,6 +47,9 @@
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Subscriber Messages</span>
             </a>
 					</li>
+					<li class="sidebar-header">
+						News Manu
+					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('add.news')}}">
@@ -67,38 +70,35 @@
 					</li>
 
 					<li class="sidebar-header">
-						Tools & Components
+						Protection namu
 					</li>
-
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="{{route('admin.protect')}}">
+							<i class="fa-solid fa-plus"></i><span class="align-middle">Add Protection News</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+						<a class="sidebar-link" href="{{route('show.protect')}}">
+							<i class="fa-solid fa-book-open"></i> <span class="align-middle">Show Protection News</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+					<li class="sidebar-item ">
+						<a class="sidebar-link" href="">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Edit</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
+					
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-					</li>
+				
+
+					
+
+					
+
+					
 
 					<li class="sidebar-header">
 						Plugins & Addons

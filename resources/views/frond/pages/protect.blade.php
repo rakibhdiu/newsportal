@@ -48,25 +48,29 @@
  <!-- header section end -->
  <!-- protect section start -->
  <div class="protect_section layout_padding">
+   @foreach($protect as $pro)
     <div class="container">
        <div class="row">
           <div class="col-sm-12">
-             <h1 class="protect_taital">How to Protect Yourself</h1>
-             <p class="protect_text">English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</p>
+             <h1 class="protect_taital">{{$pro->protect_title}}</h1>
+             <p class="protect_text">{{$pro->short_p}}</p>
           </div>
        </div>
        <div class="protect_section_2 layout_padding">
           <div class="row">
              <div class="col-md-6">
-                <h1 class="hands_text"><a href="#">Wash your <br>hands frequently</a></h1>
-                <h1 class="hands_text_2"><a href="#">Maintain social <br>distancing</a></h1>
-                <h1 class="hands_text"><a href="#">Avoid touching eyes,<br>nose and mouth</a></h1>
+                <h1 class="hands_text"><a href="#">{{$pro->pro_rules1}}</a></h1>
+                <h1 class="hands_text_2"><a href="#">{{$pro->pro_rules2}}</a></h1>
+                <h1 class="hands_text"><a href="#">{{$pro->pro_rules3}}</a></h1>
              </div>
              <div class="col-md-6">
-                <div class="image_2"><img src="images/img-2.png"></div>
+                <div class="image_2">
+                  <img width="500px" src="{{asset('upload/images/' .$pro->image)}}" alt="image">
+               </div>
              </div>
           </div>
        </div>
     </div>
+    @endforeach
  </div>
 @endsection
