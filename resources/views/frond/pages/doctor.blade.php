@@ -48,7 +48,8 @@
  <!-- header section end -->
  <!-- doctor section start -->
  @foreach ($doctor as $doc)
- <div class="doctors_section layout_padding" style="background-image: url(<img src={{asset("upload/images/" .$doc->image)}}">">
+ <div class="doctors_section layout_padding" style="background-image: url('{{ asset('upload/images/' .$doc->image) }}');">
+
     <div class="container-fluid">
        <div class="row">
           <div class="col-sm-12">
