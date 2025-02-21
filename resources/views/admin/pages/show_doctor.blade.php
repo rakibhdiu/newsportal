@@ -21,10 +21,10 @@
                     <tr>
                       <th scope="row">{{$item->id}}</th>
                       <td>
-                        <img src="{{asset('upload/images/' .$item->image_icon)}}" alt="image" width="150px">
+                       {{$item->title}}
                       </td>
                       <td>
-                        <img src="{{asset('upload/images/' .$item->bg_image)}}" alt="image" width="150px">
+                        <img src="{{asset('upload/images/' .$item->image)}}" alt="image" width="150px">
                       </td>
                       <td>{{$item->description}}</td>
                       <td>

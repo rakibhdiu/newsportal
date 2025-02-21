@@ -18,24 +18,20 @@ class DoctorController extends Controller
     public function storeDoctor(Request $request){
         $request->validate([
             'title'=>'required',
-            'image_icon'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'bg_image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description'=>'required'
         ]);
-        $imgName1=time() . '.' . $request->image_icon->getClientOriginalExtension();
-        $request->image_icon->move(public_path('upload/images'),$imgName1);
 
-        $imgName=time() . '.' . $request->bg_image->getClientOriginalExtension();
-        $request->bg_image->move(public_path('upload/images'),$imgName);
+        $imgName=time() . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('upload/images'),$imgName);
 
         Doctor::create([
             'title'=>$request->title,
-            'image_icon'=>$imgName1,
-            'bg_image'=>$imgName,
+            'image'=>$imgName,
             'description'=>$request->description
         ]);
         Alert::success('Message','Doctor Suggestion Added Successfully');
-        return redirect()->back();
+        return redirect()->route('admin.show.doctor');
         
     }
     public function editDoctor($id){
@@ -45,31 +41,24 @@ class DoctorController extends Controller
     public function updateDoctor(Request $request, $id){
         $updatedoc=$request->validate([
             'title'=>'required',
-            'image_icon'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'bg_image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           
             'description'=>'required'
         ]);
         $docdata=Doctor::find($id);
+        
         if ($request->hasFile('image')) {
                 
-            if ($docdata->image_icon && file_exists(public_path('upload/images/' .$docdata->image))) {
-                unlink(public_path('upload/images/' .$docdata->image_icon));
+            if ($docdata->image && file_exists(public_path('upload/images/' .$docdata->image))) {
+                unlink(public_path('upload/images/' .$docdata->image));
             }
-            $imgName1 = time() . '.' . $request->image_icon->getClientOriginalExtension();
-            $request->image_icon->move(public_path('upload/images'), $imgName1);
-            $docdata['image'] =  $imgName1;
+            $imgName = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('upload/images'), $imgName);
+            $updatedoc['image'] =  $imgName;
         }
-        if ($request->hasFile('image')) {
-                
-            if ($docdata->bg_image && file_exists(public_path('upload/images/' .$docdata->image))) {
-                unlink(public_path('upload/images/' .$docdata->bg_image));
-            }
-            $imgName = time() . '.' . $request->bg_image->getClientOriginalExtension();
-            $request->bg_image->move(public_path('upload/images'), $imgName);
-            $docdata['image'] =  $imgName;
-        }
+       
         $docdata->update($updatedoc);
-        Alert::success('Message','Doctor Inpom=rmation Updated Successfully');
+        Alert::success('Message','Doctor Information Updated Successfully');
         return redirect()->route('admin.show.doctor');
     }
 }

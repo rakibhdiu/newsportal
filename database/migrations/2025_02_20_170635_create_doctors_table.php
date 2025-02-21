@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('image_icon');
-            $table->string('bg_image');
+            $table->string('image');
+           
             $table->longText('description');
             $table->timestamps();
         });

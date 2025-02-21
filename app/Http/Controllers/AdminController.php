@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Doctor;
 use App\Models\Protect;
 use App\Models\Subscribe;
 use Illuminate\Http\Request;
@@ -124,7 +125,8 @@ public function userStore(Request $request){
         return view('frond.pages.protect',compact('protect'));
     }
     public function doctor(){
-        return view('frond.pages.doctor');
+        $doctor=Doctor::all();
+        return view('frond.pages.doctor',compact('doctor'));
     }
 
 

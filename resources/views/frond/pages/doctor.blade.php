@@ -47,7 +47,8 @@
  </div>
  <!-- header section end -->
  <!-- doctor section start -->
- <div class="doctors_section layout_padding">
+ @foreach ($doctor as $doc)
+ <div class="doctors_section layout_padding" style="background-image: url(<img src={{asset("upload/images/" .$doc->image)}}">">
     <div class="container-fluid">
        <div class="row">
           <div class="col-sm-12">
@@ -56,8 +57,8 @@
                    <div class="play_icon"><img src="images/play-icon.png"></div>
                 </div>
                 <div class="taital_right">
-                   <h1 class="doctor_taital">What doctors say..</h1>
-                   <p class="doctor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                   <h1 class="doctor_taital">{{$doc->title}}</h1>
+                   <p class="doctor_text">{{$doc->description}}</p>
                    <div class="readmore_bt"><a href="#">Read More</a></div>
                 </div>
              </div>
@@ -65,4 +66,5 @@
        </div>
     </div>
  </div>
+ @endforeach
 @endsection
