@@ -91,7 +91,10 @@ class AdminController extends Controller
 
 //----------------------//Frondend Pages//--------------------------//
   public function home(){
-    return view('home');
+    $about=About::all();
+    $protect=Protect::all();
+    $doctor=Doctor::all();
+    return view('home',compact('about','protect','doctor'));
   }
 
 public function userStore(Request $request){

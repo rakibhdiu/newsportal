@@ -113,46 +113,56 @@
 <!-- header section end -->
 <!-- protect section start -->
 <div class="protect_section layout_padding">
-   <div class="container">
-      <div class="row">
-         <div class="col-sm-12">
-            <h1 class="protect_taital">How to Protect Yourself</h1>
-            <p class="protect_text">English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</p>
-         </div>
-      </div>
-      <div class="protect_section_2 layout_padding">
-         <div class="row">
-            <div class="col-md-6">
-               <h1 class="hands_text"><a href="#">Wash your <br>hands frequently</a></h1>
-               <h1 class="hands_text_2"><a href="#">Maintain social <br>distancing</a></h1>
-               <h1 class="hands_text"><a href="#">Avoid touching eyes,<br>nose and mouth</a></h1>
-            </div>
-            <div class="col-md-6">
-               <div class="image_2"><img src="images/img-2.png"></div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+   @foreach($protect as $pro)
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="protect_taital">{{$pro->protect_title}}</h1>
+             <p class="protect_text">{{$pro->short_p}}</p>
+          </div>
+       </div>
+       <div class="protect_section_2 layout_padding">
+          <div class="row">
+             <div class="col-md-6">
+                <h1 class="hands_text"><a href="#">{{$pro->pro_rules1}}</a></h1>
+                <h1 class="hands_text_2"><a href="#">{{$pro->pro_rules2}}</a></h1>
+                <h1 class="hands_text"><a href="#">{{$pro->pro_rules3}}</a></h1>
+             </div>
+             <div class="col-md-6">
+                <div class="image_2">
+                  <img width="500px" src="{{asset('upload/images/' .$pro->image)}}" alt="image">
+               </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    @endforeach
+ </div>
 <!-- protect section end -->
 <!-- about section start -->
 <div class="about_section layout_padding">
    <div class="container">
+     @foreach ($about as $value)
+        
       <div class="row">
          <div class="col-md-6">
-            <div class="about_img"><img src="images/img-1.png"></div>
+            <div class="about_img"><img src="{{asset('upload/images/' .$value->image)}}" alt="images"></div>
          </div>
          <div class="col-md-6">
-            <h1 class="about_taital">Coronavirus what it is?</span></h1>
-            <p class="about_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+            <h1 class="about_taital">{{ $value->about_title}}</span></h1>
+            <p class="about_text">{{$value->about_text}}</p>
             <div class="read_bt"><a href="#">Read More</a></div>
          </div>
       </div>
+      @endforeach
    </div>
 </div>
+
 <!-- about section end -->
 <!-- doctor section start -->
-<div class="doctors_section layout_padding">
+@foreach ($doctor as $doc)
+<div class="doctors_section layout_padding" style="background-image: url('{{ asset('upload/images/' .$doc->image) }}');">
+
    <div class="container-fluid">
       <div class="row">
          <div class="col-sm-12">
@@ -161,8 +171,8 @@
                   <div class="play_icon"><img src="images/play-icon.png"></div>
                </div>
                <div class="taital_right">
-                  <h1 class="doctor_taital">What doctors say..</h1>
-                  <p class="doctor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                  <h1 class="doctor_taital">{{$doc->title}}</h1>
+                  <p class="doctor_text">{{$doc->description}}</p>
                   <div class="readmore_bt"><a href="#">Read More</a></div>
                </div>
             </div>
@@ -170,6 +180,7 @@
       </div>
    </div>
 </div>
+@endforeach
 <!-- doctor section end -->
 <!-- news section start -->
 <div class="news_section layout_padding">

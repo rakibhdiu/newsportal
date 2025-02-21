@@ -11,8 +11,8 @@
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Messages</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Messages</th>
                       </tr>
                     </thead>
                     <tbody>
