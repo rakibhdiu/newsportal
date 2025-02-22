@@ -9,7 +9,20 @@
                    <div class="togle_">
                       <div class="menu_main">
                          <ul>
-                            <li><a href="#">Login</a></li>
+                           @if(Auth::check())
+                               <li>
+                                   <a href="{{ route('logout') }}" 
+                                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                      Logout
+                                   </a>
+                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       @csrf
+                                   </form>
+                               </li>
+                           @else
+                               <li><a href="{{ route('login') }}">Login</a></li>
+                               <li><a href="{{ route('register') }}">Sign up</a></li>
+                           @endif
                             <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                          </ul>
                       </div>
@@ -22,6 +35,8 @@
                          <a href="{{route('about')}}">About</a>
                          <a href="{{route('doctor')}}">Doctors</a>
                          <a href="{{route('news')}}">News</a>
+                         <a href="{{ auth()->check() && auth()->user()->utype === 'ADM' ? route('admin.dashboard')
+                         : route('dashboard') }}">Dashboard</a>
                       </div>
                    </div>
                    <span class="navbar-toggler-icon"></span>
@@ -58,7 +73,7 @@
                    <div class="play_icon"><img src="images/play-icon.png"></div>
                 </div>
                 <div class="taital_right">
-                   <h1 class="doctor_taital">{{$doc->title}}</h1>
+                   <h1 class="doctor_taital">{{$doc->title!!}}</h1>
                    <p class="doctor_text">{{$doc->description}}</p>
                    <div class="readmore_bt"><a href="#">Read More</a></div>
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Doctor;
+use App\Models\News;
 use App\Models\Protect;
 use App\Models\Subscribe;
 use Illuminate\Http\Request;
@@ -117,7 +118,8 @@ public function userStore(Request $request){
     return view('dashboard');
     }
     public function news(){
-        return view('frond.pages.news');
+        $news=News::all();
+        return view('frond.pages.news',compact('news'));
     }
     public function about(){
         $about=About::all();

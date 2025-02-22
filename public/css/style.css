@@ -633,6 +633,9 @@ menu_text {
     color: #fefefd;
     font-weight: bold;
 }
+.doctor_taital span{
+    color: #1456db;
+}
 
 .doctor_text {
     width: 50%;

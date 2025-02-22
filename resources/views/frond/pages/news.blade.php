@@ -11,7 +11,20 @@
                       <div class="togle_">
                          <div class="menu_main">
                             <ul>
-                               <li><a href="#">Login</a></li>
+                              @if(Auth::check())
+                              <li>
+                                  <a href="{{ route('logout') }}" 
+                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                     Logout
+                                  </a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      @csrf
+                                  </form>
+                              </li>
+                          @else
+                              <li><a href="{{ route('login') }}">Login</a></li>
+                              <li><a href="{{ route('register') }}">Sign up</a></li>
+                          @endif
                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                             </ul>
                          </div>
@@ -24,6 +37,8 @@
                          <a href="{{route('about')}}">About</a>
                          <a href="{{route('doctor')}}">Doctors</a>
                          <a href="{{route('news')}}">News</a>
+                         <a href="{{ auth()->check() && auth()->user()->utype === 'ADM' ? route('admin.dashboard')
+                         : route('dashboard') }}">Dashboard</a>
                          </div>
                       </div>
                       <span class="navbar-toggler-icon"></span>
@@ -50,54 +65,54 @@
     <!-- header section end -->
     <!-- news section start -->
     <div class="news_section layout_padding">
-       <div class="container">
-          <div id="main_slider" class="carousel slide" data-ride="carousel">
-             <div class="carousel-inner">
-                <div class="carousel-item active">
-                   <h1 class="news_taital">Latest News</h1>
-                   <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                   <div class="news_section_2 layout_padding">
-                      <div class="box_main">
-                         <div class="image_1"><img src="images/news-img.png"></div>
-                         <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                         <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                         <div class="read_btn"><a href="#">Read More</a></div>
-                      </div>
-                   </div>
-                </div>
-                <div class="carousel-item">
+      <div class="container">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
                   <h1 class="news_taital">Latest News</h1>
-                   <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                   <div class="news_section_2 layout_padding">
-                      <div class="box_main">
-                         <div class="image_1"><img src="images/news-img.png"></div>
-                         <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                         <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                         <div class="read_btn"><a href="#">Read More</a></div>
-                      </div>
-                   </div>
-                </div>
-                <div class="carousel-item">
-                  <h1 class="news_taital">Latest News</h1>
-                   <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                   <div class="news_section_2 layout_padding">
-                      <div class="box_main">
-                         <div class="image_1"><img src="images/news-img.png"></div>
-                         <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                         <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                         <div class="read_btn"><a href="#">Read More</a></div>
-                      </div>
-                   </div>      
-                </div>
-             </div>
-             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-             <i class="fa fa-angle-left"></i>
-             </a>
-             <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-             <i class="fa fa-angle-right"></i>
-             </a>
-          </div>
-          </div>
-       </div>
-    </div>
+                  <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+                  <div class="news_section_2 layout_padding">
+                     <div class="box_main">
+                        <div class="image_1"><img src="images/news-img.png"></div>
+                        <h2 class="design_text">Coronavirus is Very dangerous</h2>
+                        <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                        <div class="read_btn"><a href="#">Read More</a></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                 <h1 class="news_taital">Latest News</h1>
+                  <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+                  <div class="news_section_2 layout_padding">
+                     <div class="box_main">
+                        <div class="image_1"><img src="images/news-img.png"></div>
+                        <h2 class="design_text">Coronavirus is Very dangerous</h2>
+                        <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                        <div class="read_btn"><a href="#">Read More</a></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                 <h1 class="news_taital">Latest News</h1>
+                  <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
+                  <div class="news_section_2 layout_padding">
+                     <div class="box_main">
+                        <div class="image_1"><img src="images/news-img.png"></div>
+                        <h2 class="design_text">Coronavirus is Very dangerous</h2>
+                        <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                        <div class="read_btn"><a href="#">Read More</a></div>
+                     </div>
+                  </div>      
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+            </a>
+         </div>
+         </div>
+      </div>
+   </div>
 @endsection
